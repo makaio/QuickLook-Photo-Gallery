@@ -1,0 +1,6 @@
+Previous Image: Left Arrow (or P key)
+Next Image: Right Arrow (or N key)
+Enter Full Screen: F
+Exit Full Screen: Esc
+Start/Stop Slideshow: Space
+Close Extension: C

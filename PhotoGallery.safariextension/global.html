@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+    <head>
+        <script src="scripts/jquery.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">            
+            function togglePreview(event) {
+                safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("togglePreview", {
+                    min_image_width : safari.extension.settings.min_image_width,
+                    min_image_height : safari.extension.settings.min_image_height,
+                    display_images_on : safari.extension.settings.display_images_on,
+                    display_images_on_linked_pages : safari.extension.settings.display_images_on_linked_pages,
+                    display_jpeg : safari.extension.settings.display_jpeg,
+                    display_gif : safari.extension.settings.display_gif,
+                    display_png : safari.extension.settings.display_png,
+                    slideshow_delay : safari.extension.settings.slideshow_delay,
+                    image_loading_timeout : safari.extension.settings.image_loading_timeout
+                });
+            }
+
+			function validate(event) {
+				event.target.disabled = !event.target.browserWindow.activeTab.url;
+			}
+            
+            function respondToMessage(event) {
+				if(event.name === "loadUrl") {
+                    var url = event.message;
+                    if(url) {
+                        var proxy = $('<div></div>').hide();
+                        proxy.load(url + ' img', function() {
+                            proxy.find('img').each(function() {
+                                safari.application.activeBrowserWindow.activeTab.
+                                    page.dispatchMessage("assessImage", $(this).attr('src'));
+                            });
+                            setTimeout(function() {
+                                proxy.remove();
+                            }, 5 * 1000);
+                            safari.application.activeBrowserWindow.activeTab.
+                                page.dispatchMessage("completedLoadingUrl", url);
+                        });
+                    }
+                }
+            }
+            
+			// Listen for messages from our injected script
+			safari.application.addEventListener("message", respondToMessage, false);
+			
+			// Listen for messages from Safari, such as toolbar button clicks
+            safari.application.addEventListener("validate", validate, false);
+			safari.application.addEventListener("command", togglePreview, false);
+            
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

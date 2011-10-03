@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>DefaultValue</key>
+		<real>300</real>
+		<key>Key</key>
+		<string>min_image_width</string>
+		<key>Title</key>
+		<string>Minimum Image Width (pixels)</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<real>300</real>
+		<key>Key</key>
+		<string>min_image_height</string>
+		<key>Title</key>
+		<string>Minimum Image Height (pixels)</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<string>all</string>
+		<key>Key</key>
+		<string>display_images_on</string>
+		<key>Title</key>
+		<string>Display Images</string>
+		<key>Titles</key>
+		<array>
+			<string>This page only</string>
+			<string>Linked pages only</string>
+			<string>Both this page and linked pages</string>
+		</array>
+		<key>Type</key>
+		<string>PopUpButton</string>
+		<key>Values</key>
+		<array>
+			<string>this_page</string>
+			<string>linked_pages</string>
+			<string>all</string>
+		</array>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<true/>
+		<key>Key</key>
+		<string>display_jpeg</string>
+		<key>Title</key>
+		<string>Display jpeg images</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<false/>
+		<key>Key</key>
+		<string>display_gif</string>
+		<key>Title</key>
+		<string>Display gif images</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<false/>
+		<key>Key</key>
+		<string>display_png</string>
+		<key>Title</key>
+		<string>Display png images</string>
+		<key>Type</key>
+		<string>CheckBox</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<real>5</real>
+		<key>Key</key>
+		<string>slideshow_delay</string>
+		<key>Title</key>
+		<string>Slideshow Slide Length (seconds)</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<real>12</real>
+		<key>Key</key>
+		<string>image_loading_timeout</string>
+		<key>Title</key>
+		<string>Image Loading Timeout (seconds)</string>
+		<key>Type</key>
+		<string>TextField</string>
+	</dict>
+	<dict>
+		<key>DefaultValue</key>
+		<real>0.0</real>
+		<key>Key</key>
+		<string>display_images_on_linked_pages</string>
+	</dict>
+</array>
+</plist>

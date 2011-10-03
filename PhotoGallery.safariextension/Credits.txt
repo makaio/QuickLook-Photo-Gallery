@@ -1,0 +1,8 @@
+Thanks to the following for making their knowledge and skill freely available:
+
+Graphics from the "Iconic Icon Set" by P.J. Onori are used throughout the project.
+http://somerandomdude.com/projects/iconic/
+
+Blog posts from Peter Beverloo were used in figuring out how to get full screen mode working reliably.
+http://peter.sh/
+
