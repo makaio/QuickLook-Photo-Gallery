@@ -59,6 +59,8 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://s3.amazonaws.com/qlphotogallery/download/update-manifest.plist</string>
 	<key>Website</key>
 	<string>http://www.qlphotogallery.com</string>
 </dict>
