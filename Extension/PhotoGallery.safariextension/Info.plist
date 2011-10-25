@@ -5,11 +5,11 @@
 	<key>Author</key>
 	<string>Matt Goatcher</string>
 	<key>Builder Version</key>
-	<string>6534.50</string>
+	<string>7534.51.22</string>
 	<key>CFBundleDisplayName</key>
 	<string>QuickLook Photo Gallery</string>
 	<key>CFBundleIdentifier</key>
-	<string>net.angcrest.photogallery</string>
+	<string>com.qlphotogallery.safari</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleShortVersionString</key>
@@ -31,6 +31,8 @@
 				<string>images/icon.png</string>
 				<key>Label</key>
 				<string>Gallery</string>
+				<key>Tool Tip</key>
+				<string>Display Gallery</string>
 			</dict>
 		</array>
 	</dict>
@@ -57,5 +59,7 @@
 			<string>All</string>
 		</dict>
 	</dict>
+	<key>Website</key>
+	<string>http://www.qlphotogallery.com</string>
 </dict>
 </plist>
