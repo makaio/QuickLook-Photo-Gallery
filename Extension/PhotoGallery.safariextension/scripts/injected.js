@@ -97,6 +97,7 @@ var spider = {
         this._gatherInlineImages();
         this._gatherLinkedImages();
         this._gatherHtmlImages();
+        this._gatherImgurImages();
 		if(document.URL.match(/facebook.com/))
 			this._gatherFacebookImages();
 		if(document.URL.match(/flickr.com/))
@@ -268,6 +269,22 @@ var spider = {
 			}
 		});
 	},
+	
+	_gatherImgurImages : function() {
+        if(settings.display_linked_images) {
+            // Automatically append .jpg to image paths where needed
+            $('a').each(function() {
+                var src = $(this).attr('href');
+                if(src && src.match(/imgur.com/) && !src.match(settings.image_regexp)) {
+                    src = src + '.jpg';
+                    spider.pending_image_count++;
+                    spider._assessImage(src, function() {
+                        spider.pending_image_count--;
+                    });
+                }
+            });
+        }
+    },
     
     _assessImage : function(src, callback) {
         // If its a new image, consider it a potential image
