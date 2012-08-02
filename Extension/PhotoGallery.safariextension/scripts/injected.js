@@ -496,13 +496,13 @@ var uiController = {
                 	uiController.resetAutohideTimer();
 				}
             });
-            setInterval('uiController.autohideController()', 3 * 1000);
+            setInterval('uiController.autohideController()', 1000);
             this.resetAutohideTimer();
         },
     
     autohideController : function() {
         var d = new Date();
-        if(d.getTime() - this.last_mousemove > 5 * 1000) {
+        if(d.getTime() - this.last_mousemove > 3 * 1000) {
             this.controller.fadeOut();
         }
     },
@@ -580,13 +580,13 @@ var uiController = {
 	                    .appendTo('body')
 	                    .hide()
 	                    .load(function() {
-	                        preview_image.attr('src', src);
-	                        uiController.positionImage();
-							uiController.is_ui_waiting = false;
-							
-							if(uiController.is_slideshow_running) {
-								uiController.slideshow_interval =  setTimeout("uiController.displayNextImage()", settings.slideshow_delay * 1000);
-							}
+	                        preview_image.attr('src', src).load(function(){
+                                uiController.positionImage();
+    							uiController.is_ui_waiting = false;							
+    							if(uiController.is_slideshow_running) {
+    								uiController.slideshow_interval =  setTimeout("uiController.displayNextImage()", settings.slideshow_delay * 1000);
+    							}
+                            });
 	                    });
 	            });
 			}
@@ -604,10 +604,14 @@ var uiController = {
 	                $('<img src="'+src+'">')
 	                    .appendTo('body')
 	                    .hide()
-	                    .load(function() {
-	                        preview_image.attr('src', src);
-	                        uiController.positionImage();
-							uiController.is_ui_waiting = false;
+	                    .load(function(ev) {
+                            preview_image.attr('src', src).load(function(){
+                                uiController.positionImage();
+                                uiController.is_ui_waiting = false;                         
+                                if(uiController.is_slideshow_running) {
+                                    uiController.slideshow_interval =  setTimeout("uiController.displayNextImage()", settings.slideshow_delay * 1000);
+                                }
+                            });
 	                    });
 	            });
 			}
