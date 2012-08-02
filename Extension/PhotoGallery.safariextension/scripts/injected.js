@@ -541,9 +541,9 @@ var uiController = {
             this.positionImage();
         },
         
-    positionImage : function(w, h) {
-            var vcenter = helper.calcVerticalCenter(this.preview_image, h);
-            var hcenter = helper.calcHorizontalCenter(this.preview_image, w);
+    positionImage : function() {
+            var vcenter = helper.calcVerticalCenter(this.preview_image);
+            var hcenter = helper.calcHorizontalCenter(this.preview_image);
         
             this.preview_image
                 .css('position', 'absolute')
